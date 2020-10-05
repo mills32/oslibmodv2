@@ -5,7 +5,7 @@
 
 static int osl_modPlaying = 0;
 static int osl_modInitialized = 0;
-static int osl_modFrequency = 44100, osl_modShift = 0, osl_modStereo = 1;
+static int osl_modFrequency = 22050, osl_modShift = 1, osl_modStereo = 1;
 
 static BOOL PSP_IsThere(void)
 {
@@ -132,7 +132,7 @@ static void MODStart(OSL_SOUND *s)		{
 */
 void oslAudioCallback_PlaySound_MOD(OSL_SOUND *s)		{
 	//Stereo only, mono doesn't work yet (and the speedup wouldn't be worth it)
-	md_mode = DMODE_16BITS|DMODE_STEREO|DMODE_SOFT_MUSIC;
+	md_mode = DMODE_STEREO|DMODE_SOFT_MUSIC;
 	s->mono = 0;
 
 /*	int oldmode = md_mode;
@@ -163,8 +163,8 @@ void oslAudioCallback_StopSound_MOD(OSL_SOUND *s)		{
 
 int oslAudioCallback_AudioCallback_MOD(unsigned int i, void* buf, unsigned int length)			{
 	//Set up playback
-	md_mixfreq = osl_modFrequency;
-	//md_mixshift = osl_modShift;
+	md_mixfreq = 22050;
+	md_mixshift = 1;
 
 	if (osl_modPlaying)
 		VC_WriteBytes(buf, length << 2);
