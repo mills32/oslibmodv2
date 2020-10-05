@@ -18,12 +18,12 @@ extern UNIMOD     *pf;           /* <- this modfile is being played */
 UWORD md_device         = 0;
 //Brunni/ Pour resampler, répète 1 << md_mixshift fois le même sample.
 UWORD md_mixshift       = 0;
-UWORD md_mixfreq        = 44100;
-UWORD md_mode           = DMODE_STEREO | DMODE_16BITS | DMODE_SURROUND;
+UWORD md_mixfreq        = 22050;
+UWORD md_mode           = DMODE_STEREO;
 UWORD md_dmabufsize     = 50;
-UBYTE md_pansep         = 128;      /* 128 == 100% (full left/right) */
+UBYTE md_pansep         = 96;      /* */
 
-UBYTE md_reverb         = 6;       /* Reverb */
+UBYTE md_reverb         = 0;       /* Reverb */
 
 UBYTE md_volume         = 96;       /* Global sound volume (0-128) */
 UBYTE md_musicvolume    = 128;      /* volume of song */
